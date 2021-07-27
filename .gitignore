@@ -1,0 +1,5 @@
+*.npy
+*.hdf5
+*.h5
+*.pyc
+*.csv

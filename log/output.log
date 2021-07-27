@@ -1,0 +1,57 @@
+>> Start! : Sat Jul 24 00:11:45 2021
+>> data preprocessing
+>> X_train, X_test, y_train, y_test --(save)--> *.npy, *.csv
+>> model building
+>> model training
+>> start - Process-1
+Epoch 1/300
+34/34 - 141s - loss: 181.7827 - accuracy: 0.3732 - val_loss: 112.8474 - val_accuracy: 0.4492
+
+Epoch 00001: val_loss improved from inf to 112.84739, saving model to ./save/CNN_RNN_Resnet_10_use_mp_fold_0.hdf5
+Epoch 2/300
+34/34 - 17s - loss: 76.6416 - accuracy: 0.5809 - val_loss: 50.2212 - val_accuracy: 0.4414
+
+Epoch 00002: val_loss improved from 112.84739 to 50.22116, saving model to ./save/CNN_RNN_Resnet_10_use_mp_fold_0.hdf5
+Epoch 3/300
+34/34 - 17s - loss: 34.5252 - accuracy: 0.5938 - val_loss: 24.8774 - val_accuracy: 0.4531
+
+Epoch 00003: val_loss improved from 50.22116 to 24.87740, saving model to ./save/CNN_RNN_Resnet_10_use_mp_fold_0.hdf5
+Epoch 4/300
+>> Start! : Sat Jul 24 00:16:13 2021
+>> data preprocessing
+>> X_train, X_test, y_train, y_test --(save)--> *.npy, *.csv
+>> model building
+>> model training
+>> start - Process-1
+Epoch 1/300
+34/34 - 125s - loss: 181.8320 - accuracy: 0.3824 - val_loss: 112.5167 - val_accuracy: 0.4531
+
+Epoch 00001: val_loss improved from inf to 112.51670, saving model to ./save/CNN_RNN_Resnet_10_use_mp_fold_0.hdf5
+Epoch 2/300
+34/34 - 17s - loss: 76.5345 - accuracy: 0.5712 - val_loss: 50.1114 - val_accuracy: 0.4414
+
+Epoch 00002: val_loss improved from 112.51670 to 50.11144, saving model to ./save/CNN_RNN_Resnet_10_use_mp_fold_0.hdf5
+Epoch 3/300
+34/34 - 17s - loss: 34.3843 - accuracy: 0.5873 - val_loss: 24.6678 - val_accuracy: 0.4531
+
+Epoch 00003: val_loss improved from 50.11144 to 24.66780, saving model to ./save/CNN_RNN_Resnet_10_use_mp_fold_0.hdf5
+Epoch 4/300
+>> Start! : Sat Jul 24 00:20:19 2021
+>> data preprocessing
+>> X_train, X_test, y_train, y_test --(save)--> *.npy, *.csv
+>> model building
+>> model training
+>> start - Process-1
+Epoch 1/300
+34/34 - 122s - loss: 181.7496 - accuracy: 0.3883 - val_loss: 112.8954 - val_accuracy: 0.4531
+
+Epoch 00001: val_loss improved from inf to 112.89539, saving model to ./save/CNN_RNN_Resnet_10_use_mp_fold_0.hdf5
+Epoch 2/300
+34/34 - 17s - loss: 76.6152 - accuracy: 0.5653 - val_loss: 50.1851 - val_accuracy: 0.4414
+
+Epoch 00002: val_loss improved from 112.89539 to 50.18511, saving model to ./save/CNN_RNN_Resnet_10_use_mp_fold_0.hdf5
+Epoch 3/300
+34/34 - 17s - loss: 34.6028 - accuracy: 0.5818 - val_loss: 24.7497 - val_accuracy: 0.4531
+
+Epoch 00003: val_loss improved from 50.18511 to 24.74969, saving model to ./save/CNN_RNN_Resnet_10_use_mp_fold_0.hdf5
+Epoch 4/300
