@@ -11,7 +11,7 @@ os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 os.environ['TF_DETERMINISTIC_OPS'] = '1'
 os.environ['TF_CUDNN_DETERMINISTIC'] = '1'
 # seed 고정
-seed = 42
+seed = 2 # 42
 import numpy as np
 import random as rn
 np.random.seed(seed)
@@ -24,7 +24,7 @@ tf.random.set_seed(seed)
 # 미리 만들어둔 모듈 import
 from my_utils.preprocess import DataPreprocess
 from my_utils.nfold_test import NFoldModel
-from my_utils.dataloader import Workout_dataset, class_weight_dict
+from my_utils.dataloader import Workout_dataset #, class_weight_dict
 from my_utils.model import CNN_RNN_Resnet #, nonBN_CNN_RNN_Resnet
 # %%
 # data preprocessing
@@ -32,7 +32,7 @@ print(">> data preprocessing")
 features_path = './data/train_features.csv'
 labels_path = './data/train_labels.csv'
 
-num_of_fold = 5 # 5, 10
+num_of_fold = 10 # 5, 10
 # %%
 preprocess = DataPreprocess(
     folds=num_of_fold,seed=seed,acc_norm=10,gy_norm=2000,
@@ -53,7 +53,7 @@ print(">> model building")
 
 rot_prob = 0.5 # 0.5
 perm_prob = 0.5 # 0.2
-class_weight = class_weight_dict(bias=1)
+class_weight = None # class_weight_dict(bias=1)
 
 nfold_model = NFoldModel(
     batch_size=64, valid_ratio=4, 
@@ -88,7 +88,7 @@ print(">> model training")
 if __name__ == '__main__': # (multiprocessing모듈로 gpu메모리 관리)
     nfold_model.nfold_train(
         fold_list,
-        class_weight,
+        class_weight_dict=class_weight,
         rot_prob=rot_prob,
         perm_prob=perm_prob
         )

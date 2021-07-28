@@ -17,6 +17,7 @@
 # tf.compat.v1.set_random_seed(seed)
 # tf.random.set_seed(seed)
 # %%
+import tensorflow as tf
 import tensorflow.keras.layers as layers
 from tensorflow.keras import regularizers, initializers
 from tensorflow.keras import optimizers
@@ -42,11 +43,14 @@ class CNN_RNN_Resnet:
         self._activation = layers.LeakyReLU
         self._pool = layers.GlobalAveragePooling1D
         self._dense = layers.Dense
-    
+        
     def __call__(self,seed=42,optimizer='SGD',optimizer_setting={'learning_rate':0.001,'momentum':0.5}):
         self.seed = seed
         model = self.build_model()
-        optm = getattr(optimizers,optimizer)(**optimizer_setting)
+        if optimizer == 'Adam':
+            optm = tf.compat.v1.train.AdamOptimizer(**optimizer_setting)
+        else:
+            optm = getattr(optimizers,optimizer)(**optimizer_setting)
         model.compile(optimizer=optm,
             loss='categorical_crossentropy', metrics=['accuracy'])
         return model
