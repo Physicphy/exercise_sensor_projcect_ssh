@@ -11,7 +11,7 @@ os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 os.environ['TF_DETERMINISTIC_OPS'] = '1'
 os.environ['TF_CUDNN_DETERMINISTIC'] = '1'
 # seed 고정
-seed = 2 # 42
+seed = 7 # 42
 import numpy as np
 import random as rn
 np.random.seed(seed)
@@ -24,7 +24,7 @@ tf.random.set_seed(seed)
 # 미리 만들어둔 모듈 import
 from my_utils.preprocess import DataPreprocess
 from my_utils.nfold_test import NFoldModel
-from my_utils.dataloader import Workout_dataset #, class_weight_dict
+from my_utils.dataloader import Workout_dataset, class_weight_dict
 from my_utils.model import CNN_RNN_Resnet #, nonBN_CNN_RNN_Resnet
 # %%
 # data preprocessing
@@ -53,11 +53,11 @@ print(">> model building")
 
 rot_prob = 0.5 # 0.5
 perm_prob = 0.5 # 0.2
-class_weight = None # class_weight_dict(bias=1)
+class_weight = class_weight_dict(bias=1) # None
 
 nfold_model = NFoldModel(
     batch_size=64, valid_ratio=4, 
-    early_stop_patience=30, seed=42, 
+    early_stop_patience=30, seed=seed, 
     optimizer='Adam', #'SGD'
     optimizer_setting={'learning_rate':0.001}# {'learning_rate':0.03,'momentum':0.9}  # {'learning_rate':0.2,'momentum':0.9}
     )
@@ -76,9 +76,10 @@ nfold_model.model_parameter = dict(
 # fold_list = [1,5,9]
 fold_list = list(range(num_of_fold))
 model_name = nfold_model.Model_class.__name__
-file_base_name = f'{model_name}_{num_of_fold}_use_mp'
+add_name = '_and_class_weight' if class_weight else ''
+file_base_name = f'{model_name}_{num_of_fold}_use_mp{add_name}'
 nfold_model.file_base_name = f"{file_base_name}_alpha_{nfold_model.model_parameter['leakyrelu_alpha']}_res_num_{nfold_model.model_parameter['res_num']}_opt_{nfold_model.optimizer}"
-
+print(f">>> file_base_name : {nfold_model.file_base_name}")
 print(f">>> model : {model_name}")
 print(f">>> model_parameter :\n{nfold_model.model_parameter}\n>>> num_of_fold : {num_of_fold}\n>>> optimizer : {nfold_model.optimizer}",nfold_model.optimizer_setting)
 print(f">>> rot_prob: {rot_prob}, perm_prob: {perm_prob}")

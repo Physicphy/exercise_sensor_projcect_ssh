@@ -1,0 +1,40 @@
+>> Start! : Wed Jul 28 16:55:03 2021
+>> data preprocessing
+>> X_train, X_test, y_train, y_test --(save)--> *.npy, *.csv
+labels_to_csv at ./data/y_train.csv
+labels_to_csv at ./data/y_test.csv
+features_to_npy at ./data/X_train : 250/2500
+features_to_npy at ./data/X_train : 500/2500
+features_to_npy at ./data/X_train : 750/2500
+features_to_npy at ./data/X_train : 1000/2500
+features_to_npy at ./data/X_train : 1250/2500
+features_to_npy at ./data/X_train : 1500/2500
+features_to_npy at ./data/X_train : 1750/2500
+features_to_npy at ./data/X_train : 2000/2500
+features_to_npy at ./data/X_train : 2250/2500
+features_to_npy at ./data/X_train : 2500/2500
+features_to_npy at ./data/X_test : 62/625
+features_to_npy at ./data/X_test : 124/625
+features_to_npy at ./data/X_test : 186/625
+features_to_npy at ./data/X_test : 248/625
+features_to_npy at ./data/X_test : 310/625
+features_to_npy at ./data/X_test : 372/625
+features_to_npy at ./data/X_test : 434/625
+features_to_npy at ./data/X_test : 496/625
+features_to_npy at ./data/X_test : 558/625
+features_to_npy at ./data/X_test : 620/625
+features_to_npy at ./data/X_test : 625/625
+>> model building
+>>> file_base_name : CNN_RNN_Resnet_10_use_mp_and_class_weight_alpha_0.1_res_num_5_opt_Adam
+>>> model : CNN_RNN_Resnet
+>>> model_parameter :
+{'leakyrelu_alpha': 0.1, 'input_kernels': 20, 'input_kernel_width': 3, 'input_regularize_coeff': 0.001, 'res_kernels': 60, 'res_kernel_width': 3, 'res_regularize_coeff': 0.1, 'res_num': 5}
+>>> num_of_fold : 10
+>>> optimizer : Adam {'learning_rate': 0.001}
+>>> rot_prob: 0.5, perm_prob: 0.5
+>> model training
+>> start - Process-1 at Wed Jul 28 16:55:38 2021
+Epoch 1/1000
+34/34 - 113s - loss: 198.5430 - accuracy: 0.3097 - val_loss: 127.6740 - val_accuracy: 0.0195
+
+Epoch 00001: val_loss improved from inf to 127.67404, saving model to ./save/CNN_RNN_Resnet_10_use_mp_and_class_weight_alpha_0.1_res_num_5_opt_Adam_fold_0.hdf5

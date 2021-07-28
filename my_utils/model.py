@@ -47,10 +47,7 @@ class CNN_RNN_Resnet:
     def __call__(self,seed=42,optimizer='SGD',optimizer_setting={'learning_rate':0.001,'momentum':0.5}):
         self.seed = seed
         model = self.build_model()
-        if optimizer == 'Adam':
-            optm = tf.compat.v1.train.AdamOptimizer(**optimizer_setting)
-        else:
-            optm = getattr(optimizers,optimizer)(**optimizer_setting)
+        optm = getattr(optimizers,optimizer)(**optimizer_setting)
         model.compile(optimizer=optm,
             loss='categorical_crossentropy', metrics=['accuracy'])
         return model
