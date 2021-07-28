@@ -83,7 +83,7 @@ class NFoldModel:
         model = self.Model_class(**self.model_parameter)(seed=self.seed,optimizer=self.optimizer,optimizer_setting=self.optimizer_setting)
         return model
     
-    def train(self,fold,rot_prob=0.5,perm_prob=0.2):
+    def train(self,fold,class_weight_dict,rot_prob=0.5,perm_prob=0.2):
         file_name = f'{self.file_base_name}_fold_{fold}.hdf5'
         checkpoint = self.checkpoint(file_name)
         early_stop = self.early_stop()
@@ -94,12 +94,13 @@ class NFoldModel:
         model.fit(train_ds,
             validation_data=valid_ds,
             epochs=1000, verbose=2,
-            callbacks=[checkpoint,early_stop,lr_scheduler])
+            callbacks=[checkpoint,early_stop,lr_scheduler],
+            class_weight=class_weight_dict)
 
-    def nfold_train(self,fold_list,rot_prob=0.5,perm_prob=0.2):
+    def nfold_train(self,fold_list,class_weight_dict,rot_prob=0.5,perm_prob=0.2):
         mp_train = mp_run(self.train,print_spend_time=True)
         for fold in fold_list:
-            mp_train(fold,rot_prob=rot_prob,perm_prob=perm_prob)
+            mp_train(fold,class_weight_dict,rot_prob=rot_prob,perm_prob=perm_prob)
             time.sleep(4)
     
     def evaluate_test(self,test_ds,fold):

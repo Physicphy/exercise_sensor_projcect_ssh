@@ -72,5 +72,5 @@ submit_form = pd.read_csv("./data/sample_submission.csv")
 # %%
 submit_form.iloc[:,1:] = predict
 # %%
-submit_form.to_csv(f'./data/{save_file_name}.csv',index=False)
+submit_form.to_csv(f'./data/y_submit/{save_file_name}.csv',index=False)
 print(">> Finished!")

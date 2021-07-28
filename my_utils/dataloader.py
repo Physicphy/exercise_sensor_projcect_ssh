@@ -191,21 +191,21 @@ class Workout_dataset(keras.utils.Sequence):
             data[j] = data_new
         return data
 # %%
-# from sklearn.utils.class_weight import compute_class_weight
-# train_y = pd.read_csv('./data/data_y_train.csv')  # label load
-# label_dict = dict()
-# for label, label_desc in zip(train_y.label, train_y.label_desc):
-#     label_dict[label] = label_desc
-# # 'Squat (kettlebell / goblet)'에서 [/]를 [,]으로 변경
-# label_dict[45] = 'Squat (kettlebell , goblet)'
+from sklearn.utils.class_weight import compute_class_weight
+y_train = pd.read_csv('./data/y_train.csv')  # label load
+label_dict = dict()
+for label, label_desc in zip(y_train.label, y_train.label_desc):
+    label_dict[label] = label_desc
+# 'Squat (kettlebell / goblet)'에서 [/]를 [,]으로 변경
+label_dict[45] = 'Squat (kettlebell , goblet)'
 
-# class_weights = compute_class_weight(
-#     'balanced',
-#     np.unique(train_y.label),
-#     train_y.label)
+class_weights = compute_class_weight(
+    'balanced',
+    np.unique(y_train.label),
+    y_train.label)
 
-# def class_weight_dict(bias=1):
-#     return dict(zip(
-#     list(range(61)),
-#     class_weights+bias
-#     ))
+def class_weight_dict(bias=1):
+    return dict(zip(
+    list(range(61)),
+    class_weights+bias
+    ))
