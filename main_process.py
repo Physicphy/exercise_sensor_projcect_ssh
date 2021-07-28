@@ -78,7 +78,7 @@ fold_list = list(range(num_of_fold))
 model_name = nfold_model.Model_class.__name__
 add_name = '_and_class_weight' if class_weight else ''
 file_base_name = f'{model_name}_{num_of_fold}_use_mp{add_name}'
-nfold_model.file_base_name = f"{file_base_name}_alpha_{nfold_model.model_parameter['leakyrelu_alpha']}_res_num_{nfold_model.model_parameter['res_num']}_opt_{nfold_model.optimizer}"
+nfold_model.file_base_name = f"{file_base_name}_alpha_{'%.0E' % nfold_model.model_parameter['leakyrelu_alpha']}_res_num_{nfold_model.model_parameter['res_num']}_opt_{nfold_model.optimizer}"
 print(f">>> file_base_name : {nfold_model.file_base_name}")
 print(f">>> model : {model_name}")
 print(f">>> model_parameter :\n{nfold_model.model_parameter}\n>>> num_of_fold : {num_of_fold}\n>>> optimizer : {nfold_model.optimizer}",nfold_model.optimizer_setting)
