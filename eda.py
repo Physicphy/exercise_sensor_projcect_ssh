@@ -23,7 +23,7 @@ for i in range(61):
 # %%
 size_df[size_df.label < 1/61].shape
 # %%
-seed = 7
+seed = 42
 import os
 os.environ['PYTHONHASHSEED'] = str(seed) #'0'
 # GPU가 여럿일 때 특정 GPU를 선택
@@ -50,9 +50,9 @@ from my_utils.dataloader import Workout_dataset, class_weight_dict
 from my_utils.model import CNN_RNN_Resnet
 # %%
 class_weight = class_weight_dict(bias=1)
-num_of_fold = 10
+num_of_fold = 5
 
-file_desc = '_bias_1_4step_input_non_diff'
+file_desc = f'_bias_1_seed{seed}'
 
 features_path = './data/train_features.csv'
 labels_path = './data/train_labels.csv'
@@ -100,4 +100,121 @@ print("macro:",score_dict)
 # %%
 from sklearn.metrics import log_loss
 print("log_loss :",log_loss(preprocess.y_test_label,predict))
+# %%
+import pickle
+file_name = 'prediction_of_testset.pickle'
+
+with open(file_name, 'rb') as frb:
+    loaded_predict = pickle.load(frb)
+# %%
+predict_label = np.argmax(loaded_predict,axis=1)
+# %%
+true_label = np.array(preprocess.y_test_label)
+# %%
+true_label.shape, predict_label.shape
+# %%
+o_dict = {}
+x_dict = {}
+n_dict = {}
+for i in range(len(true_label)):
+    t = true_label[i]
+    p = predict_label[i]
+    n_dict[t] = n_dict.get(t,0)+1
+    if t == p:
+        o_dict[t] = o_dict.get(t,0)+1
+    else:
+        x_dict[t] = x_dict.get(t,[])+[p]
+# %%
+o_dict
+# %%
+n_dict
+# %%
+x_dict
+# %%
+df_result = pd.DataFrame.from_dict(n_dict,orient='index',columns=['tot_num'])
+df_result
+# %%
+df_result.loc[:,'correct_predict'] = 0
+df_result.loc[:,'wrong_predict'] = None
+df_result
+# %%
+for i in df_result.index:
+    df_result.loc[i,'correct_predict'] = o_dict.get(i,0)
+    df_result.loc[i,'wrong_predict'] = str(x_dict.get(i,None))
+df_result
+# %%
+df_result['ratio'] = df_result['correct_predict']/df_result['tot_num']
+df_result
+# %%
+# 하나도 못 맞춘 것
+set(n_dict) - set(o_dict)
+# %%
+# 전부 맞춘 것
+set(n_dict) - set(x_dict)
+# %%
+x_dict[0]
+# %%
+x_dict[12]
+# %%
+x_dict[32]
+# %%
+x_dict[49]
+# %%
+x_list = []
+for k in x_dict:
+    x_list = x_list + x_dict[k]
+len(x_list)
+# %%
+73/625
+# %%
+x_list.count(26), len(x_list), x_list.count(26)/len(x_list)
+# %%
+from collections import Counter
+Counter(x_list)
+# %%
+ratio_dict = {}
+for k in n_dict:
+    ratio_dict[k] = (o_dict.get(k,0)/n_dict[k])
+ratio_dict
+# %%
+ratio_dict_sorted = dict(sorted(ratio_dict.items(),key=(lambda x:x[1])))
+# %%
+sns.set(rc = {'figure.figsize':(15,8)})
+sns.barplot(data=df_result,x=df_result.index,y='ratio',order=df_result.sort_values(by='ratio').index)
+# %%
+sns.barplot(data=df_result.sort_values(by='ratio').iloc[:10],x=df_result.sort_values(by='ratio').iloc[:10].index,y='ratio',order=df_result.sort_values(by='ratio').iloc[:10].index)
+# %%
+df_result.loc[51]
+# %%
+df_result.sort_values(by='tot_num',ascending=False)['tot_num']/df_result['tot_num'].sum()
+# %%
+wrong_predict = Counter(x_list)
+# %%
+key = list(wrong_predict.keys())
+# %%
+ratio = list(wrong_predict.values())
+ratio = [ round(r/sum(ratio),4) for r in ratio]
+ratio
+# %%
+plt.pie(ratio, labels=key, autopct='%.2f%%')
+plt.show()
+# %%
+wrong_predict
+# %%
+wrong_predict_reshape = {}
+for k in wrong_predict:
+    if wrong_predict[k] > 3:
+        wrong_predict_reshape[k] = wrong_predict[k]
+    else:
+        wrong_predict_reshape['other'] = wrong_predict_reshape.get('other',0)+wrong_predict[k]
+wrong_predict_reshape
+# %%
+key = [26,60,48,30,'otehr']
+ratio = [round(r/73,4) for r in [18,8,4,4,39]]
+ratio
+# %%
+plt.pie(ratio, labels=key, autopct='%.2f%%')
+plt.show()
+# %%
+df_result[df_result.ratio>=0.8].mean()
 # %%

@@ -74,7 +74,7 @@ class DataPreprocess:
             fold_list = []
             for i in range(size):
                 fold_list.append(i%self.folds)
-            np.random.seed(self.seed)
+            # np.random.seed(self.seed)
             np.random.shuffle(fold_list)
             for i, _id in enumerate(id_list):
                 df_labels.loc[df_labels.id == _id, 'Fold'] = fold_list[i]
