@@ -2,23 +2,31 @@
 import time
 start_time = time.time()
 print(f">> Start! : {time.ctime(start_time)}")
+
+# seed 고정
+seed = 42 # 42, 7
+print(f">>> seed = {seed}")
 import os
-os.environ['PYTHONHASHSEED'] = '0'
-os.environ['CUDA_VISIBLE_DEVICES'] = '0' 
+os.environ['PYTHONHASHSEED'] = str(seed) #'0'
+# GPU가 여럿일 때 특정 GPU를 선택
+# os.environ['CUDA_VISIBLE_DEVICES'] = '0' 
 # terminal에 tf 실행/경고/에러 로그가 출력되지 않게 설정
 # os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
-# 재현성위해 세팅
+
+# tensorflow 재현성위해 세팅
 os.environ['TF_DETERMINISTIC_OPS'] = '1'
 os.environ['TF_CUDNN_DETERMINISTIC'] = '1'
-# seed 고정
-seed = 7 # 42
+
+import tensorflow as tf
+# tf.compat.v1.set_random_seed(seed)
+tf.random.set_seed(seed)
+
 import numpy as np
 import random as rn
 np.random.seed(seed)
 rn.seed(seed)
-import tensorflow as tf
-tf.compat.v1.set_random_seed(seed)
-tf.random.set_seed(seed)
+
+
 # from tensorflow.keras.backend import manual_variable_initialization 
 # manual_variable_initialization(True)
 # 미리 만들어둔 모듈 import
@@ -32,13 +40,13 @@ print(">> data preprocessing")
 features_path = './data/train_features.csv'
 labels_path = './data/train_labels.csv'
 
-num_of_fold = 10 # 5, 10
+num_of_fold = 5 # 5, 10
 # %%
 preprocess = DataPreprocess(
     folds=num_of_fold,seed=seed,acc_norm=10,gy_norm=2000,
     features_path=features_path,labels_path=labels_path)
 
-preprocess.train_test_split(test_size=0.2,random_state=42)
+preprocess.train_test_split(test_size=0.2,random_state=seed)
 preprocess.add_fold_label(preprocess.y_train)
 # %%
 # X_train, X_test, y_train, y_test를 npy, csv로 저장
@@ -52,8 +60,9 @@ preprocess.features_to_npy(preprocess.X_test,"./data/X_test")
 print(">> model building")
 
 rot_prob = 0.5 # 0.5
-perm_prob = 0.5 # 0.2
+perm_prob = 0.5 # 0.2, 0.5
 class_weight = class_weight_dict(bias=1) # None
+file_desc = f'_bias_1_seed{seed}' #'_bias_1_ir_coef_1E-3'# '_bias_5e-1_ir_coef_1E-2'#''
 
 nfold_model = NFoldModel(
     batch_size=64, valid_ratio=4, 
@@ -67,7 +76,7 @@ nfold_model.model_parameter = dict(
     leakyrelu_alpha = 0.1, # 0.1
     input_kernels = 20, 
     input_kernel_width = 3, 
-    input_regularize_coeff=0.001, # 0.001, 0.0001
+    input_regularize_coeff=0.001, # 0.001, 0.0001, 0.01
     res_kernels = 60, 
     res_kernel_width = 3, 
     res_regularize_coeff=0.1, # 0.1, 0.01
@@ -77,7 +86,7 @@ nfold_model.model_parameter = dict(
 fold_list = list(range(num_of_fold))
 model_name = nfold_model.Model_class.__name__
 add_name = '_and_class_weight' if class_weight else ''
-file_base_name = f'{model_name}_{num_of_fold}_use_mp{add_name}'
+file_base_name = f'{model_name}_{num_of_fold}_use_mp{add_name+file_desc}'
 nfold_model.file_base_name = f"{file_base_name}_alpha_{'%.0E' % nfold_model.model_parameter['leakyrelu_alpha']}_res_num_{nfold_model.model_parameter['res_num']}_opt_{nfold_model.optimizer}"
 print(f">>> file_base_name : {nfold_model.file_base_name}")
 print(f">>> model : {model_name}")
@@ -95,10 +104,10 @@ if __name__ == '__main__': # (multiprocessing모듈로 gpu메모리 관리)
         )
 # %%
 # nfold_eval
-print(">> evaluate testset")
-test_batch_size = 625
-if __name__ == '__main__': # (multiprocessing모듈로 gpu메모리 관리)
-    nfold_model.nfold_evaluate_test(test_batch_size,fold_list)
+# print(">> evaluate testset")
+# test_batch_size = 625
+# if __name__ == '__main__': # (multiprocessing모듈로 gpu메모리 관리)
+#     nfold_model.nfold_evaluate_test(test_batch_size,fold_list)
 # %%
 # nfold_predict (avg score)
 print(">> calc predict_test and score_test")
@@ -112,6 +121,12 @@ print("macro:",score_dict)
 
 from sklearn.metrics import log_loss
 print("log_loss :",log_loss(preprocess.y_test_label,predict))
+
+print(">> save prediction of testset as pickle")
+import pickle
+file_name = 'prediction_of_testset.pickle'
+with open(file_name, 'wb') as fwb:
+    pickle.dump(predict,fwb)
 
 end_time = time.time()
 print(f">> Finished! : {time.ctime(end_time)}")
@@ -132,6 +147,7 @@ submit_batch_size = len(preprocess_submit.data_list)
 print("submit data size :",submit_batch_size)
 # %%
 save_file_name = f"submit_{nfold_model.file_base_name}"
+print(f">>> svae file name {save_file_name}")
 nfold_model_submit = NFoldModel(optimizer=nfold_model.optimizer,optimizer_setting=nfold_model.optimizer_setting)
 nfold_model_submit.Model_class = nfold_model.Model_class
 nfold_model_submit.Workout_dataset = nfold_model.Workout_dataset
@@ -153,3 +169,6 @@ submit_form.iloc[:,1:] = predict_submit
 # %%
 submit_form.to_csv(f'./data/y_submit/{save_file_name}.csv',index=False)
 print(">> Finished!")
+# %%
+print(">> model_summary")
+nfold_model.make_model().summary()

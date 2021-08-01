@@ -24,7 +24,7 @@ import numpy as np
 from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score
 import time
 import multiprocessing as mp
-import tensorflow as tf
+# import tensorflow as tf
 # %%
 class NFoldModel:
     def __init__(self,batch_size=64,valid_ratio=4,early_stop_patience=30,seed=42,checkpoint_name='checkpoint',optimizer='SGD',optimizer_setting={'learning_rate':0.001,'momentum':0.5}):

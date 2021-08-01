@@ -1,0 +1,659 @@
+>> Start! : Sun Aug  1 04:49:53 2021
+>>> seed = 42
+>> data preprocessing
+>> X_train, X_test, y_train, y_test --(save)--> *.npy, *.csv
+labels_to_csv at ./data/y_train.csv
+labels_to_csv at ./data/y_test.csv
+features_to_npy at ./data/X_train : 250/2500
+features_to_npy at ./data/X_train : 500/2500
+features_to_npy at ./data/X_train : 750/2500
+features_to_npy at ./data/X_train : 1000/2500
+features_to_npy at ./data/X_train : 1250/2500
+features_to_npy at ./data/X_train : 1500/2500
+features_to_npy at ./data/X_train : 1750/2500
+features_to_npy at ./data/X_train : 2000/2500
+features_to_npy at ./data/X_train : 2250/2500
+features_to_npy at ./data/X_train : 2500/2500
+features_to_npy at ./data/X_test : 62/625
+features_to_npy at ./data/X_test : 124/625
+features_to_npy at ./data/X_test : 186/625
+features_to_npy at ./data/X_test : 248/625
+features_to_npy at ./data/X_test : 310/625
+features_to_npy at ./data/X_test : 372/625
+features_to_npy at ./data/X_test : 434/625
+features_to_npy at ./data/X_test : 496/625
+features_to_npy at ./data/X_test : 558/625
+features_to_npy at ./data/X_test : 620/625
+features_to_npy at ./data/X_test : 625/625
+>> model building
+>>> file_base_name : CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam
+>>> model : CNN_RNN_Resnet
+>>> model_parameter :
+{'leakyrelu_alpha': 0.1, 'input_kernels': 20, 'input_kernel_width': 3, 'input_regularize_coeff': 0.001, 'res_kernels': 60, 'res_kernel_width': 3, 'res_regularize_coeff': 0.1, 'res_num': 5}
+>>> num_of_fold : 10
+>>> optimizer : Adam {'learning_rate': 0.001}
+>>> rot_prob: 0.5, perm_prob: 0.2
+>> model training
+>> start - Process-1 at Sun Aug  1 04:50:28 2021
+Epoch 1/1000
+34/34 - 102s - loss: 182.0138 - accuracy: 0.3791 - val_loss: 112.6060 - val_accuracy: 0.4531
+
+Epoch 00001: val_loss improved from inf to 112.60599, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 2/1000
+34/34 - 17s - loss: 76.7083 - accuracy: 0.5823 - val_loss: 50.3559 - val_accuracy: 0.4414
+
+Epoch 00002: val_loss improved from 112.60599 to 50.35594, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 3/1000
+34/34 - 17s - loss: 34.7802 - accuracy: 0.5896 - val_loss: 25.0202 - val_accuracy: 0.4531
+
+Epoch 00003: val_loss improved from 50.35594 to 25.02021, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 4/1000
+34/34 - 16s - loss: 17.9228 - accuracy: 0.5979 - val_loss: 14.9054 - val_accuracy: 0.4492
+
+Epoch 00004: val_loss improved from 25.02021 to 14.90536, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 5/1000
+34/34 - 16s - loss: 11.1293 - accuracy: 0.6048 - val_loss: 11.0089 - val_accuracy: 0.4492
+
+Epoch 00005: val_loss improved from 14.90536 to 11.00892, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 6/1000
+34/34 - 17s - loss: 8.2849 - accuracy: 0.6071 - val_loss: 9.0644 - val_accuracy: 0.4609
+
+Epoch 00006: val_loss improved from 11.00892 to 9.06440, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 7/1000
+34/34 - 16s - loss: 6.7575 - accuracy: 0.6245 - val_loss: 8.1767 - val_accuracy: 0.4492
+
+Epoch 00007: val_loss improved from 9.06440 to 8.17665, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 8/1000
+34/34 - 16s - loss: 5.8314 - accuracy: 0.6319 - val_loss: 6.9502 - val_accuracy: 0.4648
+
+Epoch 00008: val_loss improved from 8.17665 to 6.95020, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 9/1000
+34/34 - 17s - loss: 5.1638 - accuracy: 0.6374 - val_loss: 6.9358 - val_accuracy: 0.3867
+
+Epoch 00009: val_loss improved from 6.95020 to 6.93577, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 10/1000
+34/34 - 17s - loss: 4.6324 - accuracy: 0.6627 - val_loss: 6.5696 - val_accuracy: 0.2070
+
+Epoch 00010: val_loss improved from 6.93577 to 6.56964, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 11/1000
+34/34 - 17s - loss: 4.2362 - accuracy: 0.6627 - val_loss: 7.2905 - val_accuracy: 0.0703
+
+Epoch 00011: val_loss did not improve from 6.56964
+Epoch 12/1000
+34/34 - 17s - loss: 3.9084 - accuracy: 0.6599 - val_loss: 9.2498 - val_accuracy: 0.0781
+
+Epoch 00012: val_loss did not improve from 6.56964
+Epoch 13/1000
+34/34 - 16s - loss: 3.5822 - accuracy: 0.6829 - val_loss: 9.8469 - val_accuracy: 0.0586
+
+Epoch 00013: val_loss did not improve from 6.56964
+Epoch 14/1000
+34/34 - 16s - loss: 3.3641 - accuracy: 0.6926 - val_loss: 12.4502 - val_accuracy: 0.0117
+
+Epoch 00014: val_loss did not improve from 6.56964
+
+Epoch 00014: ReduceLROnPlateau reducing learning rate to 0.0005000000237487257.
+Epoch 15/1000
+34/34 - 16s - loss: 2.9522 - accuracy: 0.7270 - val_loss: 4.1234 - val_accuracy: 0.4648
+
+Epoch 00015: val_loss improved from 6.56964 to 4.12337, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 16/1000
+34/34 - 16s - loss: 2.7484 - accuracy: 0.7330 - val_loss: 4.3685 - val_accuracy: 0.4258
+
+Epoch 00016: val_loss did not improve from 4.12337
+Epoch 17/1000
+34/34 - 15s - loss: 2.6299 - accuracy: 0.7403 - val_loss: 3.8053 - val_accuracy: 0.5039
+
+Epoch 00017: val_loss improved from 4.12337 to 3.80526, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 18/1000
+34/34 - 15s - loss: 2.5307 - accuracy: 0.7509 - val_loss: 3.7177 - val_accuracy: 0.5117
+
+Epoch 00018: val_loss improved from 3.80526 to 3.71774, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 19/1000
+34/34 - 16s - loss: 2.4690 - accuracy: 0.7463 - val_loss: 5.2850 - val_accuracy: 0.2852
+
+Epoch 00019: val_loss did not improve from 3.71774
+Epoch 20/1000
+34/34 - 16s - loss: 2.4351 - accuracy: 0.7482 - val_loss: 4.2409 - val_accuracy: 0.3711
+
+Epoch 00020: val_loss did not improve from 3.71774
+Epoch 21/1000
+34/34 - 15s - loss: 2.3246 - accuracy: 0.7619 - val_loss: 4.8986 - val_accuracy: 0.3164
+
+Epoch 00021: val_loss did not improve from 3.71774
+Epoch 22/1000
+34/34 - 15s - loss: 2.2441 - accuracy: 0.7656 - val_loss: 5.7597 - val_accuracy: 0.2617
+
+Epoch 00022: val_loss did not improve from 3.71774
+
+Epoch 00022: ReduceLROnPlateau reducing learning rate to 0.0002500000118743628.
+Epoch 23/1000
+34/34 - 16s - loss: 2.0456 - accuracy: 0.7932 - val_loss: 2.6775 - val_accuracy: 0.6055
+
+Epoch 00023: val_loss improved from 3.71774 to 2.67752, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 24/1000
+34/34 - 16s - loss: 1.9089 - accuracy: 0.8088 - val_loss: 2.7000 - val_accuracy: 0.6250
+
+Epoch 00024: val_loss did not improve from 2.67752
+Epoch 25/1000
+34/34 - 15s - loss: 1.8694 - accuracy: 0.8065 - val_loss: 2.6095 - val_accuracy: 0.6328
+
+Epoch 00025: val_loss improved from 2.67752 to 2.60951, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 26/1000
+34/34 - 15s - loss: 1.8338 - accuracy: 0.8153 - val_loss: 2.7517 - val_accuracy: 0.6328
+
+Epoch 00026: val_loss did not improve from 2.60951
+Epoch 27/1000
+34/34 - 15s - loss: 1.8291 - accuracy: 0.8111 - val_loss: 2.4668 - val_accuracy: 0.6562
+
+Epoch 00027: val_loss improved from 2.60951 to 2.46680, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 28/1000
+34/34 - 15s - loss: 1.7975 - accuracy: 0.8088 - val_loss: 2.5330 - val_accuracy: 0.6328
+
+Epoch 00028: val_loss did not improve from 2.46680
+Epoch 29/1000
+34/34 - 15s - loss: 1.7777 - accuracy: 0.8056 - val_loss: 2.5283 - val_accuracy: 0.6328
+
+Epoch 00029: val_loss did not improve from 2.46680
+Epoch 30/1000
+34/34 - 15s - loss: 1.7367 - accuracy: 0.8272 - val_loss: 2.6618 - val_accuracy: 0.6484
+
+Epoch 00030: val_loss did not improve from 2.46680
+Epoch 31/1000
+34/34 - 15s - loss: 1.7073 - accuracy: 0.8194 - val_loss: 2.6324 - val_accuracy: 0.6562
+
+Epoch 00031: val_loss did not improve from 2.46680
+
+Epoch 00031: ReduceLROnPlateau reducing learning rate to 0.0001250000059371814.
+Epoch 32/1000
+34/34 - 15s - loss: 1.5874 - accuracy: 0.8483 - val_loss: 2.7079 - val_accuracy: 0.6367
+
+Epoch 00032: val_loss did not improve from 2.46680
+Epoch 33/1000
+34/34 - 15s - loss: 1.4970 - accuracy: 0.8534 - val_loss: 2.5851 - val_accuracy: 0.6250
+
+Epoch 00033: val_loss did not improve from 2.46680
+Epoch 34/1000
+34/34 - 15s - loss: 1.5425 - accuracy: 0.8438 - val_loss: 2.2976 - val_accuracy: 0.6875
+
+Epoch 00034: val_loss improved from 2.46680 to 2.29763, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 35/1000
+34/34 - 15s - loss: 1.4848 - accuracy: 0.8589 - val_loss: 2.0487 - val_accuracy: 0.7109
+
+Epoch 00035: val_loss improved from 2.29763 to 2.04868, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 36/1000
+34/34 - 15s - loss: 1.4010 - accuracy: 0.8736 - val_loss: 1.8755 - val_accuracy: 0.7383
+
+Epoch 00036: val_loss improved from 2.04868 to 1.87552, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 37/1000
+34/34 - 15s - loss: 1.4640 - accuracy: 0.8571 - val_loss: 2.2339 - val_accuracy: 0.7617
+
+Epoch 00037: val_loss did not improve from 1.87552
+Epoch 38/1000
+34/34 - 15s - loss: 1.4437 - accuracy: 0.8621 - val_loss: 1.8532 - val_accuracy: 0.7695
+
+Epoch 00038: val_loss improved from 1.87552 to 1.85317, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 39/1000
+34/34 - 15s - loss: 1.4575 - accuracy: 0.8488 - val_loss: 2.2393 - val_accuracy: 0.6719
+
+Epoch 00039: val_loss did not improve from 1.85317
+Epoch 40/1000
+34/34 - 15s - loss: 1.4417 - accuracy: 0.8460 - val_loss: 1.7443 - val_accuracy: 0.7891
+
+Epoch 00040: val_loss improved from 1.85317 to 1.74429, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 41/1000
+34/34 - 15s - loss: 1.3718 - accuracy: 0.8653 - val_loss: 1.9269 - val_accuracy: 0.7305
+
+Epoch 00041: val_loss did not improve from 1.74429
+Epoch 42/1000
+34/34 - 15s - loss: 1.3866 - accuracy: 0.8667 - val_loss: 1.9067 - val_accuracy: 0.7227
+
+Epoch 00042: val_loss did not improve from 1.74429
+Epoch 43/1000
+34/34 - 15s - loss: 1.4253 - accuracy: 0.8552 - val_loss: 2.2882 - val_accuracy: 0.6797
+
+Epoch 00043: val_loss did not improve from 1.74429
+Epoch 44/1000
+34/34 - 14s - loss: 1.3677 - accuracy: 0.8653 - val_loss: 2.0007 - val_accuracy: 0.7383
+
+Epoch 00044: val_loss did not improve from 1.74429
+
+Epoch 00044: ReduceLROnPlateau reducing learning rate to 6.25000029685907e-05.
+Epoch 45/1000
+34/34 - 14s - loss: 1.3274 - accuracy: 0.8750 - val_loss: 1.7870 - val_accuracy: 0.7617
+
+Epoch 00045: val_loss did not improve from 1.74429
+Epoch 46/1000
+34/34 - 15s - loss: 1.2496 - accuracy: 0.9007 - val_loss: 1.8152 - val_accuracy: 0.7344
+
+Epoch 00046: val_loss did not improve from 1.74429
+Epoch 47/1000
+34/34 - 15s - loss: 1.2243 - accuracy: 0.8966 - val_loss: 1.8001 - val_accuracy: 0.7422
+
+Epoch 00047: val_loss did not improve from 1.74429
+Epoch 48/1000
+34/34 - 15s - loss: 1.2034 - accuracy: 0.9044 - val_loss: 1.6746 - val_accuracy: 0.7617
+
+Epoch 00048: val_loss improved from 1.74429 to 1.67461, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 49/1000
+34/34 - 15s - loss: 1.1892 - accuracy: 0.9035 - val_loss: 1.6061 - val_accuracy: 0.7891
+
+Epoch 00049: val_loss improved from 1.67461 to 1.60610, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 50/1000
+34/34 - 15s - loss: 1.2111 - accuracy: 0.8989 - val_loss: 1.6777 - val_accuracy: 0.7656
+
+Epoch 00050: val_loss did not improve from 1.60610
+Epoch 51/1000
+34/34 - 15s - loss: 1.1588 - accuracy: 0.9099 - val_loss: 1.8388 - val_accuracy: 0.7539
+
+Epoch 00051: val_loss did not improve from 1.60610
+Epoch 52/1000
+34/34 - 15s - loss: 1.1971 - accuracy: 0.8984 - val_loss: 1.7597 - val_accuracy: 0.7461
+
+Epoch 00052: val_loss did not improve from 1.60610
+Epoch 53/1000
+34/34 - 15s - loss: 1.2085 - accuracy: 0.8952 - val_loss: 1.8537 - val_accuracy: 0.7422
+
+Epoch 00053: val_loss did not improve from 1.60610
+
+Epoch 00053: ReduceLROnPlateau reducing learning rate to 3.125000148429535e-05.
+Epoch 54/1000
+34/34 - 14s - loss: 1.1894 - accuracy: 0.8980 - val_loss: 1.7901 - val_accuracy: 0.7812
+
+Epoch 00054: val_loss did not improve from 1.60610
+Epoch 55/1000
+34/34 - 14s - loss: 1.1346 - accuracy: 0.9159 - val_loss: 1.6332 - val_accuracy: 0.7812
+
+Epoch 00055: val_loss did not improve from 1.60610
+Epoch 56/1000
+34/34 - 15s - loss: 1.0499 - accuracy: 0.9416 - val_loss: 1.5838 - val_accuracy: 0.7852
+
+Epoch 00056: val_loss improved from 1.60610 to 1.58384, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 57/1000
+34/34 - 15s - loss: 1.1087 - accuracy: 0.9200 - val_loss: 1.6158 - val_accuracy: 0.7852
+
+Epoch 00057: val_loss did not improve from 1.58384
+Epoch 58/1000
+34/34 - 14s - loss: 1.0788 - accuracy: 0.9311 - val_loss: 1.6384 - val_accuracy: 0.7891
+
+Epoch 00058: val_loss did not improve from 1.58384
+Epoch 59/1000
+34/34 - 14s - loss: 1.1447 - accuracy: 0.9104 - val_loss: 1.5143 - val_accuracy: 0.8203
+
+Epoch 00059: val_loss improved from 1.58384 to 1.51428, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 60/1000
+34/34 - 15s - loss: 1.0776 - accuracy: 0.9283 - val_loss: 1.5804 - val_accuracy: 0.8047
+
+Epoch 00060: val_loss did not improve from 1.51428
+Epoch 61/1000
+34/34 - 15s - loss: 1.0790 - accuracy: 0.9219 - val_loss: 1.5232 - val_accuracy: 0.8242
+
+Epoch 00061: val_loss did not improve from 1.51428
+Epoch 62/1000
+34/34 - 15s - loss: 1.1419 - accuracy: 0.9095 - val_loss: 1.5799 - val_accuracy: 0.8164
+
+Epoch 00062: val_loss did not improve from 1.51428
+Epoch 63/1000
+34/34 - 15s - loss: 1.0317 - accuracy: 0.9407 - val_loss: 1.4898 - val_accuracy: 0.8164
+
+Epoch 00063: val_loss improved from 1.51428 to 1.48982, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 64/1000
+34/34 - 15s - loss: 1.0721 - accuracy: 0.9265 - val_loss: 1.5149 - val_accuracy: 0.8125
+
+Epoch 00064: val_loss did not improve from 1.48982
+Epoch 65/1000
+34/34 - 15s - loss: 1.1168 - accuracy: 0.9044 - val_loss: 1.5295 - val_accuracy: 0.8086
+
+Epoch 00065: val_loss did not improve from 1.48982
+Epoch 66/1000
+34/34 - 15s - loss: 1.0885 - accuracy: 0.9141 - val_loss: 1.5620 - val_accuracy: 0.8086
+
+Epoch 00066: val_loss did not improve from 1.48982
+Epoch 67/1000
+34/34 - 15s - loss: 1.0549 - accuracy: 0.9256 - val_loss: 1.4735 - val_accuracy: 0.8125
+
+Epoch 00067: val_loss improved from 1.48982 to 1.47355, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 68/1000
+34/34 - 15s - loss: 1.0603 - accuracy: 0.9187 - val_loss: 1.5469 - val_accuracy: 0.8008
+
+Epoch 00068: val_loss did not improve from 1.47355
+Epoch 69/1000
+34/34 - 15s - loss: 1.0273 - accuracy: 0.9352 - val_loss: 1.4647 - val_accuracy: 0.8320
+
+Epoch 00069: val_loss improved from 1.47355 to 1.46470, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 70/1000
+34/34 - 15s - loss: 1.0760 - accuracy: 0.9187 - val_loss: 1.5889 - val_accuracy: 0.7852
+
+Epoch 00070: val_loss did not improve from 1.46470
+Epoch 71/1000
+34/34 - 15s - loss: 1.0286 - accuracy: 0.9306 - val_loss: 1.5349 - val_accuracy: 0.7930
+
+Epoch 00071: val_loss did not improve from 1.46470
+Epoch 72/1000
+34/34 - 15s - loss: 1.0132 - accuracy: 0.9361 - val_loss: 1.5534 - val_accuracy: 0.7891
+
+Epoch 00072: val_loss did not improve from 1.46470
+Epoch 73/1000
+34/34 - 15s - loss: 1.0700 - accuracy: 0.9200 - val_loss: 1.6779 - val_accuracy: 0.7578
+
+Epoch 00073: val_loss did not improve from 1.46470
+
+Epoch 00073: ReduceLROnPlateau reducing learning rate to 1.5625000742147677e-05.
+Epoch 74/1000
+34/34 - 15s - loss: 1.0263 - accuracy: 0.9311 - val_loss: 1.5316 - val_accuracy: 0.8047
+
+Epoch 00074: val_loss did not improve from 1.46470
+Epoch 75/1000
+34/34 - 15s - loss: 0.9878 - accuracy: 0.9407 - val_loss: 1.4615 - val_accuracy: 0.8359
+
+Epoch 00075: val_loss improved from 1.46470 to 1.46148, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 76/1000
+34/34 - 16s - loss: 1.0045 - accuracy: 0.9393 - val_loss: 1.4981 - val_accuracy: 0.8125
+
+Epoch 00076: val_loss did not improve from 1.46148
+Epoch 77/1000
+34/34 - 15s - loss: 1.0099 - accuracy: 0.9329 - val_loss: 1.4661 - val_accuracy: 0.8281
+
+Epoch 00077: val_loss did not improve from 1.46148
+Epoch 78/1000
+34/34 - 15s - loss: 0.9925 - accuracy: 0.9398 - val_loss: 1.4347 - val_accuracy: 0.8047
+
+Epoch 00078: val_loss improved from 1.46148 to 1.43473, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 79/1000
+34/34 - 15s - loss: 1.0016 - accuracy: 0.9297 - val_loss: 1.4599 - val_accuracy: 0.8008
+
+Epoch 00079: val_loss did not improve from 1.43473
+Epoch 80/1000
+34/34 - 15s - loss: 0.9965 - accuracy: 0.9389 - val_loss: 1.4488 - val_accuracy: 0.8438
+
+Epoch 00080: val_loss did not improve from 1.43473
+Epoch 81/1000
+34/34 - 15s - loss: 0.9869 - accuracy: 0.9370 - val_loss: 1.4608 - val_accuracy: 0.8164
+
+Epoch 00081: val_loss did not improve from 1.43473
+Epoch 82/1000
+34/34 - 15s - loss: 0.9625 - accuracy: 0.9453 - val_loss: 1.4540 - val_accuracy: 0.8281
+
+Epoch 00082: val_loss did not improve from 1.43473
+
+Epoch 00082: ReduceLROnPlateau reducing learning rate to 7.812500371073838e-06.
+Epoch 83/1000
+34/34 - 15s - loss: 0.9673 - accuracy: 0.9467 - val_loss: 1.4104 - val_accuracy: 0.8281
+
+Epoch 00083: val_loss improved from 1.43473 to 1.41037, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 84/1000
+34/34 - 15s - loss: 0.9534 - accuracy: 0.9504 - val_loss: 1.4142 - val_accuracy: 0.8203
+
+Epoch 00084: val_loss did not improve from 1.41037
+Epoch 85/1000
+34/34 - 15s - loss: 0.9727 - accuracy: 0.9403 - val_loss: 1.4060 - val_accuracy: 0.8125
+
+Epoch 00085: val_loss improved from 1.41037 to 1.40600, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 86/1000
+34/34 - 15s - loss: 0.9239 - accuracy: 0.9600 - val_loss: 1.4240 - val_accuracy: 0.8086
+
+Epoch 00086: val_loss did not improve from 1.40600
+Epoch 87/1000
+34/34 - 14s - loss: 0.9453 - accuracy: 0.9485 - val_loss: 1.4518 - val_accuracy: 0.8281
+
+Epoch 00087: val_loss did not improve from 1.40600
+Epoch 88/1000
+34/34 - 15s - loss: 0.9139 - accuracy: 0.9655 - val_loss: 1.3918 - val_accuracy: 0.8398
+
+Epoch 00088: val_loss improved from 1.40600 to 1.39175, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 89/1000
+34/34 - 15s - loss: 0.9534 - accuracy: 0.9453 - val_loss: 1.4190 - val_accuracy: 0.8164
+
+Epoch 00089: val_loss did not improve from 1.39175
+Epoch 90/1000
+34/34 - 14s - loss: 0.9240 - accuracy: 0.9614 - val_loss: 1.4555 - val_accuracy: 0.8398
+
+Epoch 00090: val_loss did not improve from 1.39175
+Epoch 91/1000
+34/34 - 15s - loss: 0.9329 - accuracy: 0.9554 - val_loss: 1.5542 - val_accuracy: 0.7891
+
+Epoch 00091: val_loss did not improve from 1.39175
+Epoch 92/1000
+34/34 - 15s - loss: 0.9278 - accuracy: 0.9628 - val_loss: 1.4260 - val_accuracy: 0.8359
+
+Epoch 00092: val_loss did not improve from 1.39175
+
+Epoch 00092: ReduceLROnPlateau reducing learning rate to 3.906250185536919e-06.
+Epoch 93/1000
+34/34 - 16s - loss: 0.9441 - accuracy: 0.9490 - val_loss: 1.4507 - val_accuracy: 0.8359
+
+Epoch 00093: val_loss did not improve from 1.39175
+Epoch 94/1000
+34/34 - 15s - loss: 0.9264 - accuracy: 0.9573 - val_loss: 1.4453 - val_accuracy: 0.8203
+
+Epoch 00094: val_loss did not improve from 1.39175
+Epoch 95/1000
+34/34 - 15s - loss: 0.9362 - accuracy: 0.9531 - val_loss: 1.4187 - val_accuracy: 0.8320
+
+Epoch 00095: val_loss did not improve from 1.39175
+Epoch 96/1000
+34/34 - 15s - loss: 0.9171 - accuracy: 0.9609 - val_loss: 1.4148 - val_accuracy: 0.8398
+
+Epoch 00096: val_loss did not improve from 1.39175
+
+Epoch 00096: ReduceLROnPlateau reducing learning rate to 1.9531250927684596e-06.
+Epoch 97/1000
+34/34 - 15s - loss: 0.9290 - accuracy: 0.9591 - val_loss: 1.4331 - val_accuracy: 0.8242
+
+Epoch 00097: val_loss did not improve from 1.39175
+Epoch 98/1000
+34/34 - 15s - loss: 0.9113 - accuracy: 0.9623 - val_loss: 1.3889 - val_accuracy: 0.8359
+
+Epoch 00098: val_loss improved from 1.39175 to 1.38894, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 99/1000
+34/34 - 15s - loss: 0.9018 - accuracy: 0.9665 - val_loss: 1.4587 - val_accuracy: 0.8242
+
+Epoch 00099: val_loss did not improve from 1.38894
+Epoch 100/1000
+34/34 - 15s - loss: 0.9040 - accuracy: 0.9623 - val_loss: 1.4337 - val_accuracy: 0.8320
+
+Epoch 00100: val_loss did not improve from 1.38894
+Epoch 101/1000
+34/34 - 15s - loss: 0.9084 - accuracy: 0.9655 - val_loss: 1.4173 - val_accuracy: 0.8398
+
+Epoch 00101: val_loss did not improve from 1.38894
+Epoch 102/1000
+34/34 - 15s - loss: 0.9197 - accuracy: 0.9591 - val_loss: 1.3936 - val_accuracy: 0.8398
+
+Epoch 00102: val_loss did not improve from 1.38894
+
+Epoch 00102: ReduceLROnPlateau reducing learning rate to 9.765625463842298e-07.
+Epoch 103/1000
+34/34 - 15s - loss: 0.9064 - accuracy: 0.9619 - val_loss: 1.4375 - val_accuracy: 0.8398
+
+Epoch 00103: val_loss did not improve from 1.38894
+Epoch 104/1000
+34/34 - 15s - loss: 0.8992 - accuracy: 0.9632 - val_loss: 1.4506 - val_accuracy: 0.8359
+
+Epoch 00104: val_loss did not improve from 1.38894
+Epoch 105/1000
+34/34 - 15s - loss: 0.9103 - accuracy: 0.9623 - val_loss: 1.4163 - val_accuracy: 0.8398
+
+Epoch 00105: val_loss did not improve from 1.38894
+Epoch 106/1000
+34/34 - 14s - loss: 0.9234 - accuracy: 0.9559 - val_loss: 1.4700 - val_accuracy: 0.8281
+
+Epoch 00106: val_loss did not improve from 1.38894
+
+Epoch 00106: ReduceLROnPlateau reducing learning rate to 4.882812731921149e-07.
+Epoch 107/1000
+34/34 - 15s - loss: 0.9136 - accuracy: 0.9563 - val_loss: 1.4375 - val_accuracy: 0.8438
+
+Epoch 00107: val_loss did not improve from 1.38894
+Epoch 108/1000
+34/34 - 15s - loss: 0.9000 - accuracy: 0.9697 - val_loss: 1.4064 - val_accuracy: 0.8398
+
+Epoch 00108: val_loss did not improve from 1.38894
+Epoch 109/1000
+34/34 - 15s - loss: 0.9091 - accuracy: 0.9609 - val_loss: 1.4533 - val_accuracy: 0.8359
+
+Epoch 00109: val_loss did not improve from 1.38894
+Epoch 110/1000
+34/34 - 15s - loss: 0.9279 - accuracy: 0.9527 - val_loss: 1.4453 - val_accuracy: 0.8398
+
+Epoch 00110: val_loss did not improve from 1.38894
+
+Epoch 00110: ReduceLROnPlateau reducing learning rate to 2.4414063659605745e-07.
+Epoch 111/1000
+34/34 - 15s - loss: 0.9006 - accuracy: 0.9600 - val_loss: 1.4428 - val_accuracy: 0.8398
+
+Epoch 00111: val_loss did not improve from 1.38894
+Epoch 112/1000
+34/34 - 15s - loss: 0.9075 - accuracy: 0.9623 - val_loss: 1.4237 - val_accuracy: 0.8438
+
+Epoch 00112: val_loss did not improve from 1.38894
+Epoch 113/1000
+34/34 - 15s - loss: 0.8993 - accuracy: 0.9628 - val_loss: 1.4287 - val_accuracy: 0.8359
+
+Epoch 00113: val_loss did not improve from 1.38894
+Epoch 114/1000
+34/34 - 14s - loss: 0.9111 - accuracy: 0.9642 - val_loss: 1.4661 - val_accuracy: 0.8320
+
+Epoch 00114: val_loss did not improve from 1.38894
+
+Epoch 00114: ReduceLROnPlateau reducing learning rate to 1.2207031829802872e-07.
+Epoch 115/1000
+34/34 - 15s - loss: 0.9081 - accuracy: 0.9573 - val_loss: 1.4405 - val_accuracy: 0.8359
+
+Epoch 00115: val_loss did not improve from 1.38894
+Epoch 116/1000
+34/34 - 15s - loss: 0.8905 - accuracy: 0.9674 - val_loss: 1.4405 - val_accuracy: 0.8398
+
+Epoch 00116: val_loss did not improve from 1.38894
+Epoch 117/1000
+34/34 - 15s - loss: 0.8863 - accuracy: 0.9706 - val_loss: 1.4402 - val_accuracy: 0.8359
+
+Epoch 00117: val_loss did not improve from 1.38894
+Epoch 118/1000
+34/34 - 15s - loss: 0.8885 - accuracy: 0.9669 - val_loss: 1.4351 - val_accuracy: 0.8320
+
+Epoch 00118: val_loss did not improve from 1.38894
+
+Epoch 00118: ReduceLROnPlateau reducing learning rate to 6.103515914901436e-08.
+Epoch 119/1000
+34/34 - 15s - loss: 0.8977 - accuracy: 0.9628 - val_loss: 1.4442 - val_accuracy: 0.8398
+
+Epoch 00119: val_loss did not improve from 1.38894
+Epoch 120/1000
+34/34 - 14s - loss: 0.8996 - accuracy: 0.9637 - val_loss: 1.4287 - val_accuracy: 0.8359
+
+Epoch 00120: val_loss did not improve from 1.38894
+Epoch 121/1000
+34/34 - 14s - loss: 0.8912 - accuracy: 0.9655 - val_loss: 1.4392 - val_accuracy: 0.8398
+
+Epoch 00121: val_loss did not improve from 1.38894
+Epoch 122/1000
+34/34 - 15s - loss: 0.9100 - accuracy: 0.9632 - val_loss: 1.4486 - val_accuracy: 0.8359
+
+Epoch 00122: val_loss did not improve from 1.38894
+
+Epoch 00122: ReduceLROnPlateau reducing learning rate to 3.051757957450718e-08.
+Epoch 123/1000
+34/34 - 15s - loss: 0.9004 - accuracy: 0.9619 - val_loss: 1.4550 - val_accuracy: 0.8359
+
+Epoch 00123: val_loss did not improve from 1.38894
+Epoch 124/1000
+34/34 - 15s - loss: 0.9135 - accuracy: 0.9591 - val_loss: 1.4718 - val_accuracy: 0.8281
+
+Epoch 00124: val_loss did not improve from 1.38894
+Epoch 125/1000
+34/34 - 15s - loss: 0.8989 - accuracy: 0.9665 - val_loss: 1.4300 - val_accuracy: 0.8516
+
+Epoch 00125: val_loss did not improve from 1.38894
+Epoch 126/1000
+34/34 - 15s - loss: 0.9357 - accuracy: 0.9536 - val_loss: 1.4499 - val_accuracy: 0.8359
+
+Epoch 00126: val_loss did not improve from 1.38894
+
+Epoch 00126: ReduceLROnPlateau reducing learning rate to 1.525878978725359e-08.
+Epoch 127/1000
+34/34 - 15s - loss: 0.8978 - accuracy: 0.9665 - val_loss: 1.4486 - val_accuracy: 0.8320
+
+Epoch 00127: val_loss did not improve from 1.38894
+Epoch 128/1000
+34/34 - 15s - loss: 0.8816 - accuracy: 0.9688 - val_loss: 1.4327 - val_accuracy: 0.8359
+
+Epoch 00128: val_loss did not improve from 1.38894
+Epoch 00128: early stopping
+>> join - Process-1 at Sun Aug  1 05:25:58 2021
+>> Process-1 spend 0h 35m 29.7s
+
+>> start - Process-2 at Sun Aug  1 05:26:02 2021
+Epoch 1/1000
+34/34 - 88s - loss: 182.4903 - accuracy: 0.3493 - val_loss: 112.8564 - val_accuracy: 0.4609
+
+Epoch 00001: val_loss improved from inf to 112.85644, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_1.hdf5
+Epoch 2/1000
+34/34 - 15s - loss: 76.8635 - accuracy: 0.5735 - val_loss: 50.2112 - val_accuracy: 0.4531
+
+Epoch 00002: val_loss improved from 112.85644 to 50.21124, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_1.hdf5
+Epoch 3/1000
+34/34 - 15s - loss: 34.8485 - accuracy: 0.5905 - val_loss: 25.0215 - val_accuracy: 0.4609
+
+Epoch 00003: val_loss improved from 50.21124 to 25.02145, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_1.hdf5
+Epoch 4/1000
+34/34 - 15s - loss: 17.9936 - accuracy: 0.5947 - val_loss: 14.9546 - val_accuracy: 0.4531
+
+Epoch 00004: val_loss improved from 25.02145 to 14.95457, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_1.hdf5
+Epoch 5/1000
+34/34 - 15s - loss: 11.1551 - accuracy: 0.6020 - val_loss: 10.7974 - val_accuracy: 0.4570
+
+Epoch 00005: val_loss improved from 14.95457 to 10.79744, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_1.hdf5
+Epoch 6/1000
+34/34 - 15s - loss: 8.1662 - accuracy: 0.6195 - val_loss: 8.8399 - val_accuracy: 0.4609
+
+Epoch 00006: val_loss improved from 10.79744 to 8.83994, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_1.hdf5
+Epoch 7/1000
+34/34 - 15s - loss: 6.6330 - accuracy: 0.6296 - val_loss: 7.7062 - val_accuracy: 0.4609
+
+Epoch 00007: val_loss improved from 8.83994 to 7.70615, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_1.hdf5
+Epoch 8/1000
+34/34 - 15s - loss: 5.7458 - accuracy: 0.6438 - val_loss: 7.4849 - val_accuracy: 0.4336
+
+Epoch 00008: val_loss improved from 7.70615 to 7.48490, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_1.hdf5
+Epoch 9/1000
+34/34 - 15s - loss: 5.0324 - accuracy: 0.6714 - val_loss: 7.0656 - val_accuracy: 0.4648
+
+Epoch 00009: val_loss improved from 7.48490 to 7.06563, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_1.hdf5
+Epoch 10/1000
+34/34 - 15s - loss: 4.6194 - accuracy: 0.6581 - val_loss: 6.2959 - val_accuracy: 0.4141
+
+Epoch 00010: val_loss improved from 7.06563 to 6.29592, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_1.hdf5
+Epoch 11/1000
+34/34 - 15s - loss: 4.2201 - accuracy: 0.6622 - val_loss: 5.8060 - val_accuracy: 0.4688
+
+Epoch 00011: val_loss improved from 6.29592 to 5.80602, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_1.hdf5
+Epoch 12/1000
+34/34 - 15s - loss: 3.8735 - accuracy: 0.6806 - val_loss: 5.9754 - val_accuracy: 0.2344
+
+Epoch 00012: val_loss did not improve from 5.80602
+Epoch 13/1000
+34/34 - 15s - loss: 3.5880 - accuracy: 0.6751 - val_loss: 5.3138 - val_accuracy: 0.4766
+
+Epoch 00013: val_loss improved from 5.80602 to 5.31383, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_1.hdf5
+Epoch 14/1000
+34/34 - 14s - loss: 3.4137 - accuracy: 0.6811 - val_loss: 5.6071 - val_accuracy: 0.2344
+
+Epoch 00014: val_loss did not improve from 5.31383
+Epoch 15/1000
+34/34 - 15s - loss: 3.1650 - accuracy: 0.6852 - val_loss: 5.2713 - val_accuracy: 0.2500
+
+Epoch 00015: val_loss improved from 5.31383 to 5.27131, saving model to ./save/CNN_RNN_Resnet_10_use_mp_seed42_alpha_1E-01_res_num_5_opt_Adam_fold_1.hdf5
+Epoch 16/1000
+34/34 - 15s - loss: 3.0248 - accuracy: 0.6907 - val_loss: 7.0553 - val_accuracy: 0.0742
+
+Epoch 00016: val_loss did not improve from 5.27131
+Epoch 17/1000
+34/34 - 15s - loss: 2.8683 - accuracy: 0.6999 - val_loss: 12.7178 - val_accuracy: 0.0508
+
+Epoch 00017: val_loss did not improve from 5.27131
+Epoch 18/1000
+34/34 - 14s - loss: 2.6831 - accuracy: 0.7256 - val_loss: 7.9435 - val_accuracy: 0.0742
+
+Epoch 00018: val_loss did not improve from 5.27131
+Epoch 19/1000

@@ -175,7 +175,7 @@ class CNN_RNN_Resnet:
             acc_input_mag, 
             acc_input_vol]
         acc_model = self.conv_gru_input_model(acc_input_list,self.input_kernels,self.input_kernel_width,self.input_regularize_coeff,self.leakyrelu_alpha)
-        acc_model_2 = self.conv_gru_input_model(acc_input_list,self.input_kernels//2,self.input_kernel_width*2,self.input_regularize_coeff,self.leakyrelu_alpha)
+        # acc_model_2 = self.conv_gru_input_model(acc_input_list,self.input_kernels//2,self.input_kernel_width*2,self.input_regularize_coeff,self.leakyrelu_alpha)
 
         # gy_conv    
         gy_input_list = [
@@ -183,7 +183,7 @@ class CNN_RNN_Resnet:
             gy_input_mag,
             gy_input_vol]
         gy_model = self.conv_gru_input_model(gy_input_list,self.input_kernels,self.input_kernel_width,self.input_regularize_coeff,self.leakyrelu_alpha)
-        gy_model_2 = self.conv_gru_input_model(gy_input_list,self.input_kernels//2,self.input_kernel_width*2,self.input_regularize_coeff,self.leakyrelu_alpha)
+        # gy_model_2 = self.conv_gru_input_model(gy_input_list,self.input_kernels//2,self.input_kernel_width*2,self.input_regularize_coeff,self.leakyrelu_alpha)
 
         # xyz_conv
         xyz_input_list = [
@@ -192,7 +192,7 @@ class CNN_RNN_Resnet:
             acc_minus_gy_input,
             acc_cross_gy_input]
         xyz_model = self.conv_gru_input_model(xyz_input_list,self.input_kernels,self.input_kernel_width,self.input_regularize_coeff,self.leakyrelu_alpha)
-        xyz_model_2 = self.conv_gru_input_model(xyz_input_list,self.input_kernels//2,self.input_kernel_width*2,self.input_regularize_coeff,self.leakyrelu_alpha)
+        # xyz_model_2 = self.conv_gru_input_model(xyz_input_list,self.input_kernels//2,self.input_kernel_width*2,self.input_regularize_coeff,self.leakyrelu_alpha)
 
         # # fft_conv
         fft_input_list = [
@@ -232,10 +232,10 @@ class CNN_RNN_Resnet:
             fft_acc_model.output, 
             fft_gy_model.output,
             xyz_model.output,
-            diff_model.output,
-            acc_model_2.output, 
-            gy_model_2.output,
-            xyz_model_2.output
+            diff_model.output
+            # acc_model_2.output, 
+            # gy_model_2.output,
+            # xyz_model_2.output
             ])
 
         res_concat = self.res_block(concat, self.res_kernels, self.res_num, self.res_kernel_width, self.res_regularize_coeff, self.leakyrelu_alpha)
@@ -424,9 +424,9 @@ class nonBN_CNN_RNN_Resnet:
         # # fft_conv
         fft_input_list = [
             acc_input_fft,
-            gy_input_fft,
-            acc_input_fft_mag,
-            gy_input_fft_mag]
+            gy_input_fft]
+            # acc_input_fft_mag,
+            # gy_input_fft_mag]
         fft_model = self.conv_gru_input_model(fft_input_list,self.input_kernels,self.input_kernel_width,self.input_regularize_coeff,self.leakyrelu_alpha)
         # fft_model_2 = self.conv_gru_input_model(fft_input_list,input_kernels//2,input_kernel_width*2,leakyrelu_alpha)
 
@@ -442,7 +442,7 @@ class nonBN_CNN_RNN_Resnet:
             gy_input_fft_mag]
         fft_gy_model = self.conv_gru_input_model(fft_gy_input_list,self.input_kernels,self.input_kernel_width,self.input_regularize_coeff,self.leakyrelu_alpha)
 
-        # diff_comv
+        # diff_conv
         diff_input_list = [
             acc_input_diff,
             gy_input_diff,

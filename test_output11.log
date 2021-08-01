@@ -1,0 +1,57 @@
+>> Start! : Thu Jul 29 01:52:53 2021
+>> data preprocessing
+>> X_train, X_test, y_train, y_test --(save)--> *.npy, *.csv
+labels_to_csv at ./data/y_train.csv
+labels_to_csv at ./data/y_test.csv
+features_to_npy at ./data/X_train : 250/2500
+features_to_npy at ./data/X_train : 500/2500
+features_to_npy at ./data/X_train : 750/2500
+features_to_npy at ./data/X_train : 1000/2500
+features_to_npy at ./data/X_train : 1250/2500
+features_to_npy at ./data/X_train : 1500/2500
+features_to_npy at ./data/X_train : 1750/2500
+features_to_npy at ./data/X_train : 2000/2500
+features_to_npy at ./data/X_train : 2250/2500
+features_to_npy at ./data/X_train : 2500/2500
+features_to_npy at ./data/X_test : 62/625
+features_to_npy at ./data/X_test : 124/625
+features_to_npy at ./data/X_test : 186/625
+features_to_npy at ./data/X_test : 248/625
+features_to_npy at ./data/X_test : 310/625
+features_to_npy at ./data/X_test : 372/625
+features_to_npy at ./data/X_test : 434/625
+features_to_npy at ./data/X_test : 496/625
+features_to_npy at ./data/X_test : 558/625
+features_to_npy at ./data/X_test : 620/625
+features_to_npy at ./data/X_test : 625/625
+>> model building
+>>> file_base_name : CNN_RNN_Resnet_10_use_mp_alpha_1E-01_res_num_5_opt_Adam
+>>> model : CNN_RNN_Resnet
+>>> model_parameter :
+{'leakyrelu_alpha': 0.1, 'input_kernels': 20, 'input_kernel_width': 3, 'input_regularize_coeff': 0.001, 'res_kernels': 60, 'res_kernel_width': 3, 'res_regularize_coeff': 0.1, 'res_num': 5}
+>>> num_of_fold : 10
+>>> optimizer : Adam {'learning_rate': 0.001}
+>>> rot_prob: 0.5, perm_prob: 0.5
+>> model training
+>> start - Process-1 at Thu Jul 29 01:53:41 2021
+Epoch 1/1000
+34/34 - 135s - loss: 183.2363 - accuracy: 0.4090 - val_loss: 115.5757 - val_accuracy: 0.0000e+00
+
+Epoch 00001: val_loss improved from inf to 115.57570, saving model to ./save/CNN_RNN_Resnet_10_use_mp_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 2/1000
+34/34 - 17s - loss: 77.3077 - accuracy: 0.5740 - val_loss: 52.0419 - val_accuracy: 0.0117
+
+Epoch 00002: val_loss improved from 115.57570 to 52.04185, saving model to ./save/CNN_RNN_Resnet_10_use_mp_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 3/1000
+34/34 - 18s - loss: 35.1669 - accuracy: 0.5703 - val_loss: 25.9574 - val_accuracy: 0.0117
+
+Epoch 00003: val_loss improved from 52.04185 to 25.95740, saving model to ./save/CNN_RNN_Resnet_10_use_mp_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 4/1000
+34/34 - 17s - loss: 18.0674 - accuracy: 0.5947 - val_loss: 15.4083 - val_accuracy: 0.4570
+
+Epoch 00004: val_loss improved from 25.95740 to 15.40825, saving model to ./save/CNN_RNN_Resnet_10_use_mp_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 5/1000
+34/34 - 17s - loss: 11.2334 - accuracy: 0.5970 - val_loss: 11.3696 - val_accuracy: 0.1992
+
+Epoch 00005: val_loss improved from 15.40825 to 11.36963, saving model to ./save/CNN_RNN_Resnet_10_use_mp_alpha_1E-01_res_num_5_opt_Adam_fold_0.hdf5
+Epoch 6/1000
